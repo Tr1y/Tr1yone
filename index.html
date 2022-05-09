@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UR（URBAN REVIVO）官方商城-感官享悦 玩味时尚</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/CIF.css" />
+  </head>
+  <body>
+    <div id="header">
+      <div class="nav">
+        <div class="nav-left">
+          <ul>
+            <li>
+              <a>热销品类</a>
+              <ul class="navitem">
+                <li>针织</li>
+                <li>连衣裙</li>
+                <li>丹宁</li>
+                <li>外套</li>
+                <li>T恤</li>
+                <li>衬衫</li>
+                <li>西装</li>
+                <li>半身裙</li>
+                <li>裤子</li>
+              </ul>
+            </li>
+            <li><a>新季魅力</a></li>
+            <li><a>环球系列</a></li>
+            <li><a>每日精选</a></li>
+            <li><a>一周TOP榜</a></li>
+            <li><a>博主同款</a></li>
+            <li><a>男士</a></li>
+            <li><a>女士</a></li>
+            <li><a>鞋包配饰</a></li>
+            <li><a>每周新品</a></li>
+            <li><a>爆款特辑</a></li>
+            <li><a>明星专区</a></li>
+            <li><a>套装搭配</a></li>
+            <li><a>无性别系列</a></li>
+            <li><a>品牌故事</a></li>
+          </ul>
+        </div>
+        <div class="center-title">
+          <img src="./img/logo.png" alt="" />
+        </div>
+        <div class="nav-right">
+          <ul>
+            <li>
+              <i class="icon-png arrow-search"></i>
+              <a>搜索</a>
+            </li>
+            <li>
+              <a>店铺</a>
+            </li>
+            <li>
+              <a>国家</a>
+            </li>
+            <li>
+              <a>帮助</a>
+            </li>
+            <li>
+              <a>账户</a>
+            </li>
+            <li>
+              <i class="icon-png package"></i>
+              <a>购物袋</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    var btns = document.querySelectorAll(".nav-left ul li");
+
+    console.log(btns);
+    //   2-给所有的按钮都添加点击事件
+    btns.forEach(function (v, i) {
+      //v 每一个按钮  i 按钮对应的下标
+      console.log(v, i);
+      v.onclick = function () {
+        console.log("点击了按钮");
+        //   3- v  点击事件的内部 v 就是点击的按钮
+        console.log(v, i);
+
+        // 3-1  先把所有的按钮的active 类名都删除了
+        btns.forEach(function (v2) {
+          v2.classList.remove("active");
+        });
+
+        // 3-2  点击的按钮 添加类名  active
+        v.classList.add("active");
+
+        //   3-3 点的按钮对一个的item 显示
+        //获取所有的item
+        var items = document.querySelectorAll(".navitem");
+        console.log(items);
+
+        //   先让所有的item 都隐藏了
+        items.forEach(function (v3) {
+          v3.style.display = "none";
+        });
+        //通过按钮的下标 获取对一个的item 出现
+        var div = items[i];
+        console.log(div);
+        div.style.display = "block";
+      };
+    });
+  </script>
+</html>

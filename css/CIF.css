@@ -1,0 +1,62 @@
+#header{
+    background-image: url(../img/wrap.jpg);
+    height: 1031px;
+    position: relative;
+}
+
+/* 导航左边 */
+
+.nav .nav-left{
+    position: absolute;
+    top: 80px;
+    left: 50px;
+}
+.nav .nav-left li{
+    margin: 20px 0;
+    text-align: left;
+    font-size: 14px;
+}
+.nav .nav-left ul li .navitem{
+    display: none;
+}
+
+/* 导航中间 */
+
+.center-title img{
+    height: 40px;
+    position: absolute;
+    top: 40px;
+    left: 720px;
+}
+
+/* 导航右边 */
+
+.nav-right{
+    position: absolute;
+    top: 80px;
+    right: 50px;
+    width: 360px;
+}
+.nav-right ul li{
+    float: left;
+    margin: 0 8px;
+}
+.icon-png{
+	background-image: url(../img/icons.png);
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    display: inline-block;
+    vertical-align: middle
+}
+.arrow-search{
+	width: 18px;
+    height: 18px;
+    background-position: 0 0;
+
+	
+}
+.package{
+	width: 20px;
+    height: 22px;
+    background-position: 1px -72px;
+}
