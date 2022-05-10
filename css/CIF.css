@@ -1,8 +1,4 @@
-#header{
-    background-image: url(../img/wrap.jpg);
-    height: 1031px;
-    position: relative;
-}
+
 
 /* 导航左边 */
 
@@ -59,4 +55,185 @@
 	width: 20px;
     height: 22px;
     background-position: 1px -72px;
+}
+
+/* 购物车 */
+#car{
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 400px;
+    height: 1031px;
+    background-color: white;
+    border: 1px #E9E9E9 solid;
+    display: none;
+}
+
+#car img{
+    margin: 180px 150px;
+    margin-bottom: 0px;
+}
+#car p{
+    margin: 30px 135px;
+    margin-top: 0px;
+    color: #8E8E93;
+}
+#car h2{
+    padding: 80px 30px;
+    font-size: 22px;
+    font-weight: 900;
+}
+#car #carBtn{
+    margin: 20px auto 0px;
+    width: 340px;
+    height: 60px;
+    background: #0047BB;
+    font-size: 16px;
+    font-family: Microsoft YaHei;
+    font-weight: 400;
+    color: #FFFFFF;
+    line-height: 45px;
+    padding: 7px 0;
+    text-align: center;
+    line-height: 60px;
+}
+#hovercar:hover #car{
+    display: block;
+}
+
+/* 底部内容 */
+
+#buttom{
+    border-top: 1px solid #ccc;
+    height: 532px;
+    padding: 20px;
+}
+#buttom .buttom-left{
+    float: left;
+    width: 36%;
+    height: 100%;
+}
+#buttom .buttom-center{
+    float: left;
+    width: 32%;
+    height: 100%;
+}
+#buttom .buttom-right{
+    float: left;
+    height: 100%;
+    width: 32%;
+}
+
+/* 底部左边最上边 */
+.buttom-left .buttom-left-top{
+    padding: 30px;
+}
+.buttom-left .buttom-left-top ul{
+    display: flex;
+    flex-direction: column;
+}
+.buttom-left .buttom-left-top ul li{
+    display: flex;
+    margin: 10px 0;
+    line-height: 30px;
+    color: #444;
+}
+.buttom-left .buttom-left-top ul li i{
+    margin-right: 10px;
+}
+.arrow-message {
+    width: 32px;
+    height: 30px;
+    background-position: -19px 0;
+}
+.arrow-phone {
+    width: 30px;
+    height: 30px;
+    background-position: -50px 0;
+}
+.arrow-email {
+    width: 32px;
+    height: 30px;
+    background-position: 0 -33px;
+}
+
+/* 底部左边最下边 */
+
+.buttom-left-buttom{
+    margin-top: 50px;
+    color: #444;
+}
+.buttom-left-buttom div{
+    display: flex;
+    margin: 10px 0;
+}
+
+/* 底部中间最上边最下边 */
+
+.buttom-center-top,.buttom-center-buttom{
+    padding: 30px;
+}
+.buttom-center-top input,.buttom-center-buttom input{
+    margin: 20px 0;
+    border: 1px solid #e6e6e6;
+    width: 243px;
+    height: 30px;
+}
+.buttom-center-top p,.buttom-center-buttom p{
+    margin: 10px 0;
+}
+.buttom-center-buttom #btm{
+    width: 243px;
+    height: 38px;
+    background-color: white;
+    text-align: center;
+    line-height: 38px;
+    border: 1px solid #e6e6e6;
+}
+
+.arrow-address {
+    width: 26px;
+    height: 30px;
+    background-position: -28px -110px;
+}
+.arrow-etc {
+    width: 26px;
+    height: 30px;
+    background-position: -56px -110px;
+}
+
+/* 底部右边 */
+
+.right-ul{
+    float: left;
+    margin-right: 120px;
+}
+.ul-none{
+    margin-right: 0px;
+}
+.right-ul ul li{
+    margin: 20px 0;
+    color: #8e8e93;
+    font-size: 14px;
+}
+.right-ul ul li:first-child{
+    font-weight: 900;
+    color: #000;
+}
+.weibo {
+    width: 30px;
+    height: 28px;
+    background-position: -20px -72px;
+}
+.weixin {
+    width: 30px;
+    height: 28px;
+    background-position: -50px -72px;
+}
+#sj{
+    margin-top: 250px;
+}
+#sj h3{
+    margin: 20px 0;
+    font-weight: 600;
 }
