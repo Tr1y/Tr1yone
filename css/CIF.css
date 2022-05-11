@@ -5,15 +5,19 @@
 .nav .nav-left{
     position: absolute;
     top: 80px;
-    left: 50px;
+    left: 0px;
 }
 .nav .nav-left li{
     margin: 20px 0;
     text-align: left;
     font-size: 14px;
 }
+.nav .nav-left>ul{
+    margin-left: 50px;
+}
 .nav .nav-left ul li .navitem{
     display: none;
+    text-indent: 1em;
 }
 
 /* 导航中间 */

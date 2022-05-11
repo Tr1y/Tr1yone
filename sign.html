@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script src="./js/axios.min.js"></script>
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/sign.css" />
   </head>
@@ -19,7 +20,37 @@
       <div class="password">
         <p>密码：</p>
         <input class="iptnone" type="password" name="" id="" />
+        <button id="Btn">注册</button>
       </div>
     </div>
+    <script>
+      let ipts = document.querySelectorAll(".iptnone");
+      document.querySelector("#Btn").onclick = function () {
+        let username = ipts[0].value;
+        let password = ipts[1].value;
+        let regAPI = "http://jx.xuzhixiang.top/ap/api/reg.php";
+        //params 不要拼错 固定
+        let promise = axios.get(regAPI, {
+          params: {
+            username,
+            password: password,
+          },
+        });
+        promise.then(function (r) {
+          //r.data才是服务器 返回的数据--固定
+          console.log(r.data);
+          // code 1注册成  -  注册失败
+          // msg  提示信息
+          //   解构赋值
+          let { code, msg } = r.data;
+          console.log(code, msg);
+          alert(msg);
+          if (code == 1) {
+            //   跳转到登录页
+            location.href = "login.html";
+          }
+        });
+      };
+    </script>
   </body>
 </html>

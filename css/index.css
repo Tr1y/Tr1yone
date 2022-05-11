@@ -1,8 +1,127 @@
 #header{
     background-image: url(../img/wrap.jpg);
     height: 1031px;
+}
+
+/* 中部广告位 */
+#mid{
+    margin: 100px auto;
+
+}
+#midnav{
+    margin-top:100px ;
+    width: 100%;
+    height: 100%;
     position: relative;
 }
-#mid{
-    height: 2000px;
+
+#midnavh{
+    position: absolute;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    text-align: left;
+    text-indent: 30px;
+    font-size: 12px;
+    font-style: normal;
+    letter-spacing: 0.72px;
+    position: absolute;
+    top: 52%;
+    left: 50.5%;
+    margin-left: -75px;
+    color: #ffffff;
+    background-color: #0047bb;
+    display: none;
 }
+#midnav:hover #midnavh{
+    display: block;
+}
+
+/* 新季魅力 */
+
+#mid-div1{
+    margin: 0 auto;
+    width: 93%;
+    height: 1800px;
+    margin-bottom: 100px;
+}
+.mid-div1-one{
+    margin-bottom: 100px;
+    margin-top: 100px;
+}
+.mid-div1-h{
+    color: #000;
+    font-size: 28px;
+    margin-bottom: 10px;
+    line-height: 0.8;
+    text-align: center;
+}
+.h3{
+    font-size: 22px;
+}
+
+/* 新季魅力图片 */
+
+.mid-div1-two{
+    width: 100%;
+    height: 90%;
+}
+.mid-div1-two ul{
+    width: 100%;
+    height: 100%;
+}
+.mid-div1-two ul li{
+    float: left;
+    width: 850px;
+    height: 850px;
+    margin-right: 68px;
+    margin-bottom: 30px;
+    position: relative;
+
+}
+.mid-div1-two ul li img{
+    width: 850px;
+    height: 850px;
+
+}
+.mid-div1-two ul .mid-div1-none{
+    margin-right: 0px;
+}
+.mid-div1-two-hover{
+    position: absolute;
+    width: 150px;
+    height: 40px;
+    line-height: 40px;
+    text-align: left;
+    text-indent: 30px;
+    font-size: 12px;
+    font-style: normal;
+    letter-spacing: 0.72px;
+    position: absolute;
+    top: 52%;
+    left: 50.5%;
+    margin-left: -75px;
+    color: #ffffff;
+    background-color: #0047bb;
+    display: none;
+}
+.mid-div1-two ul li:hover .mid-div1-two-hover{
+    display: block;
+}
+
+/* 轮播 */
+#mid-div2{
+    margin: 0 auto;
+    width: 93%;
+    height: 1100px;
+    padding-top: 100px;
+    box-sizing: border-box;
+}
+.slideBox{ width:100%; height:80%; overflow:hidden; position:relative; border:1px solid #ddd;  }
+		.slideBox .hd{ height:15px; overflow:hidden; position:absolute; right:5px; bottom:5px; z-index:1; }
+		.slideBox .hd ul{ overflow:hidden; zoom:1; float:left;  }
+		.slideBox .hd ul li{ float:left; margin-right:2px;  width:15px; height:15px; line-height:14px; text-align:center; background:#fff; cursor:pointer; }
+		.slideBox .hd ul li.on{ background:#f00; color:#fff; }
+		.slideBox .bd{ position:relative; height:100%; z-index:0;   }
+		.slideBox .bd li{ zoom:1; vertical-align:middle; }
+		.slideBox .bd img{ width:100%; height:820px; display:block;  }

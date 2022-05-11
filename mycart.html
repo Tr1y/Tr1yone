@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./js/axios.min.js"></script>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/mycart.css" />
+  </head>
+  <body>
+    <div id="nav">
+      <img src="./img/logo.png" alt="" />
+    </div>
+    <div id="mid">
+      <ul id="cart-list"></ul>
+    </div>
+    <script>
+      loadCartList();
+
+      // 2-
+      function loadCartList() {
+        //   用户id
+        let id = localStorage.getItem("id");
+        let url = "http://jx.xuzhixiang.top/ap/api/cart-list.php";
+        axios.get(url, { params: { id } }).then((r) => {
+          console.log(r.data);
+          //   拼字符串
+          let productArr = r.data.data;
+          let liArr = productArr.map(
+            (v) => `
+              <li>
+                <img src="${v.pimg}" alt="" />
+                <div id="cart-list-Btn">
+                    <h2>${v.pname}</h2>
+                    <p>${v.pprice}</p>
+                    <input type="number" value="${v.pnum}" onchange="updateNumChange(${v.pid},this)" min="1"/>
+                    <button onclick="delBtnClick(${v.pid},this)">删除</button>
+                    
+                    <button>结算</button>
+                </div>
+                  
+              </li>
+            `
+          );
+          document.querySelector("#cart-list").innerHTML = liArr.join("");
+        });
+      }
+
+      //   6-1
+      function delBtnClick(pid, btn) {
+        console.log(pid);
+
+        console.log(btn);
+        let uid = localStorage.getItem("id");
+        let url = "http://jx.xuzhixiang.top/ap/api/cart-delete.php";
+        axios.get(url, { params: { uid, pid } }).then((r) => {
+          console.log(r.data);
+          console.log(this); //window
+          console.log(btn.parentNode);
+
+          btn.parentNode.remove();
+        });
+      }
+
+      function updateNumChange(pid, ipt) {
+        console.log(pid);
+        console.log(ipt);
+        console.log(ipt.value);
+
+        let pnum = ipt.value;
+        let uid = localStorage.getItem("id");
+        let url = "http://jx.xuzhixiang.top/ap/api/cart-update-num.php";
+        axios.get(url, { params: { pnum, uid, pid } }).then((r) => {
+          console.log(r.data);
+        });
+      }
+    </script>
+  </body>
+</html>

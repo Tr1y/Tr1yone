@@ -1,3 +1,71 @@
 #header{
-    height: 800px;
+    height: 250px;
+}
+#mid{
+    min-height: 1300px;
+}
+.nav-left{
+    min-height: 2200px;
+    opacity: 0;
+    background-color: white;
+    z-index: 3;
+}
+.nav-left:hover{
+   opacity: 1; 
+}
+.arrow-menu {
+    width: 30px;
+    height: 30px;
+    background-position: 0 -544px;
+    position: absolute;
+    top: 90px;
+    left: 60px;
+}
+
+#plist{
+    margin: 0 auto;
+    width: 90%;
+    min-height: 1300px;
+}
+#plist li{
+    width: 24.4%;
+    height: 602px;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    position: relative;
+
+}
+#plist li:nth-child(4n){
+    margin-right: 0px;
+}
+#plist>li>a>img{
+    width: 100%;
+    height: 90%;
+}
+#plist li a h2,#plist li a p{
+    text-align: center;
+    line-height: 30px;
+}
+#plist li:hover #plist-car{
+    opacity: 1;
+}
+#plist-car{
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    background-color: #fff;
+    top: 88px;
+    right: 20px;
+    border-radius: 50%;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .3s;
+    z-index: 2;
+}
+#plist-car .car-img{
+    width: 20px;
+    height: 20px;
 }

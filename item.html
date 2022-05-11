@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UR（URBAN REVIVO）官方商城-感官享悦 玩味时尚</title>
+    <script src="./js/axios.min.js"></script>
     <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/item.css" />
     <link rel="stylesheet" href="./css/CIF.css" />
-    <script src="js/jquery.js"></script>
-    <script src="js/jquery.SuperSlide.js"></script>
   </head>
   <body>
     <div id="header">
       <div class="nav">
+        <i class="icon-png arrow-menu"></i>
         <div class="nav-left">
           <ul>
             <li id="nav-left-ul">
@@ -230,7 +230,7 @@
           </ul>
         </div>
         <div class="center-title">
-          <a href="shopping.html"><img src="./img/logo.png" alt="" /></a>
+          <img src="./img/logo.png" alt="" />
         </div>
         <div class="nav-right">
           <ul>
@@ -248,7 +248,7 @@
               <a>帮助</a>
             </li>
             <li>
-              <a>账户</a>
+              <a href="login.html">账户</a>
             </li>
             <li id="hovercar">
               <i class="icon-png package"></i>
@@ -265,51 +265,11 @@
       </div>
     </div>
     <div id="mid">
-      <div id="midnav">
-        <img src="./img/index01.jpg" alt="" />
-        <div id="midnavh">VIEW MORE +</div>
-      </div>
-      <div id="mid-div1">
-        <div class="mid-div1-one">
-          <div class="mid-div1-h">KICK YOUR STYLE</div>
-          <div class="mid-div1-h h3">新季魅力</div>
-        </div>
-        <div class="mid-div1-two">
-          <ul>
-            <li>
-              <img src="./img/index02.jpg" alt="" />
-              <div class="mid-div1-two-hover">VIEW MORE +</div>
-            </li>
-            <li class="mid-div1-none">
-              <img src="./img/index03.jpg" alt="" />
-              <div class="mid-div1-two-hover">VIEW MORE +</div>
-            </li>
-            <li>
-              <img src="./img/index04.jpg" alt="" />
-              <div class="mid-div1-two-hover">VIEW MORE +</div>
-            </li>
-            <li class="mid-div1-none">
-              <img src="./img/index05.jpg" alt="" />
-              <div class="mid-div1-two-hover">VIEW MORE +</div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div id="mid-div2">
-        <div class="mid-div1-one">
-          <div class="mid-div1-h">KICK YOUR STYLE</div>
-          <div class="mid-div1-h h3">新季魅力</div>
-        </div>
-        <!-- 轮播图 -->
-        <div id="slideBox" class="slideBox">
-          <div class="hd"></div>
-          <div class="bd">
-            <ul>
-              <li><img src="./img/index06.jpg" alt="" /></li>
-              <li><img src="./img/index07.jpg" alt="" /></li>
-            </ul>
-          </div>
-        </div>
+      <div id="box">
+        <!-- <h1></h1>
+            <p></p>
+            <img src="" alt="" />
+            <p></p> -->
       </div>
     </div>
     <div id="buttom">
@@ -400,10 +360,12 @@
     </div>
   </body>
   <script>
-    var btns = document.querySelectorAll(".nav-left ul li");
+    var btns = document.querySelectorAll("#nav-left-ul");
     console.log(btns);
     btns.forEach(function (v, i) {
       v.onclick = function () {
+        console.log("点击了按钮");
+        console.log(v, i);
         btns.forEach(function (v2) {
           v2.classList.remove("active");
         });
@@ -448,11 +410,61 @@
     }
     shopping();
 
-    jQuery(".slideBox").slide({
-      mainCell: ".bd ul",
-      effect: "left",
-      autoPlay: true,
-      trigger: "click",
+    console.log(location.search);
+    //获取id 的后面的值
+    //   可以处理 url中 aaa=22&bbb=2323-- 转为了对象
+    let obj = new URLSearchParams(location.search);
+    console.log(obj);
+    // 通过 id 获取了  id等号后面的值
+    let id = obj.get("id");
+    console.log(id);
+
+    // 6-2
+    //   接口 商品详情接口
+    let detailAPI = "http://jx.xuzhixiang.top/ap/api/detail.php";
+    let pro = axios.get(detailAPI, {
+      params: {
+        id: id,
+      },
     });
+    // 成功
+    pro.then((r) => {
+      console.log("-------");
+      //服务器返回的数据
+      console.log(r.data);
+      //商品对象
+      let pObj = r.data.data;
+      console.log(pObj);
+      //6- 3-详情得显示到页面中
+      let str = `  
+        <img src="${pObj.pimg}" alt="" />
+        <div id="box-add">
+            <h1>${pObj.pname}</h1>
+        <p>价格：¥${pObj.pprice}</p>
+        <p>描述：${pObj.pdesc}</p>
+        <input type="number" value="1" min="1" class="pnum">
+        <button>加入购物车</button>
+        </div>
+        `;
+
+      document.querySelector("#box").innerHTML = str;
+      // ******上面一行代码执行以后  才有了 按钮
+      let btn = document.querySelector("button");
+
+      console.log(btn);
+      // Cannot set properties of null (setting 'onclick') 不能设置null的属性（正在设置 onclick属性）
+      btn.onclick = function () {
+        console.log("点击了按钮");
+        let pnum = document.querySelector(".pnum").value;
+        let uid = localStorage.getItem("id");
+        let url = "http://jx.xuzhixiang.top/ap/api/add-product.php";
+        axios.get(url, { params: { pnum, uid, pid: id } }).then((r) => {
+          console.log(r.data);
+          alert("加入购物车成功");
+        });
+      };
+    });
+
+    console.log(9999999);
   </script>
 </html>
