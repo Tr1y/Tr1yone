@@ -21,14 +21,11 @@
     <script>
       loadCartList();
 
-      // 2-
       function loadCartList() {
-        //   用户id
         let id = localStorage.getItem("id");
         let url = "http://jx.xuzhixiang.top/ap/api/cart-list.php";
         axios.get(url, { params: { id } }).then((r) => {
           console.log(r.data);
-          //   拼字符串
           let productArr = r.data.data;
           let liArr = productArr.map(
             (v) => `
@@ -48,7 +45,6 @@
         });
       }
 
-      //   6-1
       function delBtnClick(pid, btn) {
         console.log(pid);
 

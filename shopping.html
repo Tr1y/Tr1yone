@@ -264,15 +264,7 @@
       </div>
     </div>
     <div id="mid">
-      <ul id="plist">
-        <!-- <li>
-          <a href="item.html">
-            <img src="${v.pimg}" alt="" />
-            <h2>${v.pname}</h2>
-            <p>${v.pprice}</p>
-          </a>
-        </li> -->
-      </ul>
+      <ul id="plist"></ul>
     </div>
     <div id="buttom">
       <div class="buttom-left">
@@ -414,10 +406,8 @@
     function shop() {
       shopping();
 
-      //商品查询
       loadList();
       function loadList() {
-        //   uid 本地uid
         let uid = localStorage.getItem("id");
         console.log(uid);
         let url = "http://jx.xuzhixiang.top/ap/api/allproductlist.php";
@@ -431,7 +421,6 @@
           },
         });
         promise.then((r) => {
-          //r.data 是服务区返回的数据 -
           console.log(r.data);
 
           console.log(r.data.data);

@@ -409,31 +409,22 @@
     shopping();
 
     console.log(location.search);
-    //获取id 的后面的值
-    //   可以处理 url中 aaa=22&bbb=2323-- 转为了对象
     let obj = new URLSearchParams(location.search);
     console.log(obj);
-    // 通过 id 获取了  id等号后面的值
     let id = obj.get("id");
     console.log(id);
 
-    // 6-2
-    //   接口 商品详情接口
     let detailAPI = "http://jx.xuzhixiang.top/ap/api/detail.php";
     let pro = axios.get(detailAPI, {
       params: {
         id: id,
       },
     });
-    // 成功
     pro.then((r) => {
       console.log("-------");
-      //服务器返回的数据
       console.log(r.data);
-      //商品对象
       let pObj = r.data.data;
       console.log(pObj);
-      //6- 3-详情得显示到页面中
       let str = `  
         <img src="${pObj.pimg}" alt="" />
         <div id="box-add">
@@ -446,11 +437,9 @@
         `;
 
       document.querySelector("#box").innerHTML = str;
-      // ******上面一行代码执行以后  才有了 按钮
       let btn = document.querySelector("button");
 
       console.log(btn);
-      // Cannot set properties of null (setting 'onclick') 不能设置null的属性（正在设置 onclick属性）
       btn.onclick = function () {
         console.log("点击了按钮");
         let pnum = document.querySelector(".pnum").value;
