@@ -11,11 +11,13 @@
   </head>
   <body>
     <div id="nav">
-      <img src="./img/logo.png" alt="" />
+      <a href="shopping.html"><img src="./img/logo.png" alt="" /></a>
     </div>
     <div id="mid">
       <ul id="cart-list"></ul>
     </div>
+    <button id="jiesuan">结算</button>
+
     <script>
       loadCartList();
 
@@ -36,11 +38,9 @@
                     <h2>${v.pname}</h2>
                     <p>${v.pprice}</p>
                     <input type="number" value="${v.pnum}" onchange="updateNumChange(${v.pid},this)" min="1"/>
-                    <button onclick="delBtnClick(${v.pid},this)">删除</button>
-                    
-                    <button>结算</button>
+                    <button id="shanchu" onclick="delBtnClick(${v.pid},this)">删除</button>
+                    <br/>
                 </div>
-                  
               </li>
             `
           );
